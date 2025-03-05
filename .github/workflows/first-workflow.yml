@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: ubuntu-latest  
 
-    env:  # Define environment variables at the job level
+    env:  # Define an environment variable at the job level
       GREETING: "Hello from GitHub Actions!"
     
     steps:
@@ -22,5 +22,10 @@ jobs:
       - name: Show current date  
         run: date  
 
-      - name: Print an environment variable  
-        run: echo "$GREETING"  # Use the environment variable
+      - name: Print a job-level environment variable  
+        run: echo "$GREETING"  # Using job-level environment variable  
+
+      - name: Print a step-level environment variable  
+        env:
+          CUSTOM_MESSAGE: "Step-level environment variable"
+        run: echo "$CUSTOM_MESSAGE"  # Using step-level environment variable
