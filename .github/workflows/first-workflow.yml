@@ -9,6 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest  
 
+    env:  # Define environment variables at the job level
+      GREETING: "Hello from GitHub Actions!"
+    
     steps:
       - name: Checkout code  
         uses: actions/checkout@v4  
@@ -18,3 +21,6 @@ jobs:
 
       - name: Show current date  
         run: date  
+
+      - name: Print an environment variable  
+        run: echo "$GREETING"  # Use the environment variable
